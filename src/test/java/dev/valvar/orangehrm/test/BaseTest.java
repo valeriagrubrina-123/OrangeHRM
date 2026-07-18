@@ -43,6 +43,7 @@ public abstract class BaseTest {
             options.addArguments("--incognito");
             options.addArguments("--lang=en-US");
             options.addArguments("--disable-notifications");
+            options.addArguments("--headless=new");
             Configuration.browserCapabilities = options;
         }
 
