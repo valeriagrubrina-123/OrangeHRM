@@ -1,0 +1,25 @@
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{HH:mm:ss.SSS} %-5level [%thread]: %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.codeborne.selenide" level="INFO"/>
+
+    <logger name="org.asynchttpclient" level="WARN"/>
+    <logger name="io.netty" level="WARN"/>
+    <logger name="org.openqa.selenium" level="WARN"/>
+    <logger name="org.openqa.selenium.devtools" level="ERROR"/>
+    <logger name="com.codeborne.selenide" level="WARN"/>
+    <logger name="com.codeborne.selenide.impl" level="ERROR"/>
+
+    <logger name="dev.valvar.orangehrm" level="DEBUG" />
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>
