@@ -10,6 +10,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.testng.annotations.BeforeSuite;
 
 
 /**
@@ -19,6 +22,13 @@ public abstract class BaseTest {
 
     protected LoginPage loginPage;
     protected DashboardPage dashboardPage;
+
+    @BeforeSuite
+    public void setupAllure() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
+                .screenshots(true)
+                .savePageSource(true));
+    }
 
     @BeforeMethod
     @Parameters({"browser"})
