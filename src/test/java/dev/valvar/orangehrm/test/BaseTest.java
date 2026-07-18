@@ -25,9 +25,12 @@ public abstract class BaseTest {
 
     @BeforeSuite
     public void setupAllure() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
-                .screenshots(true)
-                .savePageSource(true));
+        SelenideLogger.addListener(
+                "AllureSelenide",
+                new AllureSelenide()
+                        .screenshots(true)
+                        .savePageSource(true)
+        );
     }
 
     @BeforeMethod
