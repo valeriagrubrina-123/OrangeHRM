@@ -14,10 +14,6 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.testng.annotations.BeforeSuite;
 
-
-/**
- * Базовый тест.
- */
 public abstract class BaseTest {
 
     protected LoginPage loginPage;

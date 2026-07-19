@@ -3,9 +3,6 @@ package dev.valvar.orangehrm.test;
 import dev.valvar.orangehrm.ConfigReader;
 import org.testng.annotations.BeforeMethod;
 
-/**
- * Базовый тест с авторизацией.
- */
 public abstract class BaseLoginTest extends BaseTest {
 
     @BeforeMethod
