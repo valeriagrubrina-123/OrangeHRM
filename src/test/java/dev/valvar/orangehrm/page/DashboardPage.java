@@ -5,6 +5,8 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -13,6 +15,8 @@ import static com.codeborne.selenide.Selenide.$$;
  * Страница панели управления.
  */
 public class DashboardPage {
+
+    private static final Logger logger = LoggerFactory.getLogger(DashboardPage.class);
 
     private final SelenideElement HEADER_TITLE = $(".oxd-topbar-header-breadcrumb-module");
     private final SelenideElement USER_DROPDOWN = $(".oxd-userdropdown-tab");

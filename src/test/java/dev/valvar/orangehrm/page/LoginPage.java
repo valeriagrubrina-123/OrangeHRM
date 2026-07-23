@@ -2,6 +2,8 @@ package dev.valvar.orangehrm.page;
 
 import com.codeborne.selenide.*;
 import io.qameta.allure.Step;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -10,6 +12,8 @@ import static com.codeborne.selenide.Selenide.$$;
  * Страница авторизации.
  */
 public class LoginPage {
+
+    private static final Logger logger = LoggerFactory.getLogger(LoginPage.class);
 
     private final SelenideElement USERNAME_INPUT = $("input[name='username']");
     private final SelenideElement PASSWORD_INPUT = $("input[name='password']");

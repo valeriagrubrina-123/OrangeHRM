@@ -3,6 +3,8 @@ package dev.valvar.orangehrm.page;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -13,6 +15,8 @@ import static com.codeborne.selenide.Selenide.$;
  * Страница "Мой отпуск".
  */
 public class MyLeavePage {
+
+    private static final Logger logger = LoggerFactory.getLogger(MyLeavePage.class);
 
     private final SelenideElement TABLE_BODY = $(".oxd-table-body");
 

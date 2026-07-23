@@ -3,6 +3,8 @@ package dev.valvar.orangehrm.page;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -10,6 +12,8 @@ import static com.codeborne.selenide.Selenide.$x;
  * Страница администрирования.
  */
 public class AdminPage {
+
+    private static final Logger logger = LoggerFactory.getLogger(AdminPage.class);
 
     private final SelenideElement ADD_BUTTON = $x("//button[normalize-space()='Add']");
     private final SelenideElement SEARCH_USERNAME_INPUT = $x("//label[text()='Username']/parent::div/following-sibling::div/input");

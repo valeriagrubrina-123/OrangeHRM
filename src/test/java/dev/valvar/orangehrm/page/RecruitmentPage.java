@@ -3,6 +3,8 @@ package dev.valvar.orangehrm.page;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -11,6 +13,8 @@ import static com.codeborne.selenide.Selenide.$x;
  * Страница подбора персонала.
  */
 public class RecruitmentPage {
+
+    private static final Logger logger = LoggerFactory.getLogger(RecruitmentPage.class);
 
     private final SelenideElement CANDIDATE_NAME_INPUT = $x("//label[text()='Candidate Name']/parent::div/following-sibling::div//input[@placeholder='Type for hints...']");
     private final SelenideElement AUTOCOMPLETE_OPTION = $x("//div[@role='listbox']//div[@role='option']//span");

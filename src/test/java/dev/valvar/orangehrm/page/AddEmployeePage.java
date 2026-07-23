@@ -3,6 +3,8 @@ package dev.valvar.orangehrm.page;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 
@@ -12,6 +14,8 @@ import static com.codeborne.selenide.Selenide.$;
  * Страница добавления сотрудника.
  */
 public class AddEmployeePage {
+
+    private static final Logger logger = LoggerFactory.getLogger(AddEmployeePage.class);
 
     private final SelenideElement FIRST_NAME_INPUT = $("input[name='firstName']");
     private final SelenideElement LAST_NAME_INPUT = $("input[name='lastName']");

@@ -3,6 +3,8 @@ package dev.valvar.orangehrm.page;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -10,6 +12,8 @@ import static com.codeborne.selenide.Selenide.$;
  * Страница "Моя информация".
  */
 public class MyInfoPage {
+
+    private static final Logger logger = LoggerFactory.getLogger(MyInfoPage.class);
 
     private final SelenideElement PERSONAL_DETAILS_HEADER = $("h6.orangehrm-main-title");
 

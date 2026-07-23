@@ -4,6 +4,8 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import dev.valvar.orangehrm.utils.OrangeHrmUtils;
 import io.qameta.allure.Step;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -16,6 +18,8 @@ import static com.codeborne.selenide.Selenide.$x;
  * Страница добавления отпуска.
  */
 public class ApplyLeavePage {
+
+    private static final Logger logger = LoggerFactory.getLogger(ApplyLeavePage.class);
 
     private final SelenideElement FROM_DATE_INPUT = $x("//label[text()='From Date']/parent::div/following-sibling::div//input");
     private final SelenideElement APPLY_BUTTON = $("button[type='submit']");
