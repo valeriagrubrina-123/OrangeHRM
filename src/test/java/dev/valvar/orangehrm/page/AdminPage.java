@@ -2,7 +2,6 @@ package dev.valvar.orangehrm.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -18,14 +17,20 @@ public class AdminPage {
     private final SelenideElement DELETE_ICON = $x("//i[contains(@class, 'bi-trash')]");
     private final SelenideElement CONFIRM_DELETE_BUTTON = $x("//button[normalize-space()='Yes, Delete']");
 
-    @Step("Кликнуть на кнопку 'Добавить пользователя'")
+    /**
+     * Кликнуть на кнопку "Добавить пользователя".
+     */
     public AddUserPage clickAddUserButton() {
         ADD_BUTTON.shouldBe(Condition.visible).click();
 
         return new AddUserPage();
     }
 
-    @Step("Поиск пользователя по username")
+    /**
+     * Осуществить поиск пользователя по имени пользователя.
+     *
+     * @param username имя пользователя.
+     */
     public AdminPage searchUserByUsername(String username) {
         SEARCH_USERNAME_INPUT.shouldBe(Condition.visible).setValue(username);
         SEARCH_BUTTON.click();
@@ -34,14 +39,20 @@ public class AdminPage {
         return this;
     }
 
-    @Step("Убедиться, что пользователь '{username}' отображается в таблице")
+    /**
+     * Проверить, что пользователь найден.
+     *
+     * @param username имя пользователя.
+     */
     public AdminPage verifyUserFound(String username) {
         TABLE_BODY.shouldHave(Condition.text(username));
 
         return this;
     }
 
-    @Step("Удалить пользователя (кликнуть иконку корзины и подтвердить)")
+    /**
+     * Удалить пользователя.
+     */
     public AdminPage deleteUser() {
         DELETE_ICON.shouldBe(Condition.visible).click();
         CONFIRM_DELETE_BUTTON.shouldBe(Condition.visible).click();
@@ -49,7 +60,11 @@ public class AdminPage {
         return this;
     }
 
-    @Step("Убедиться, что пользователя '{username}' нет в таблице")
+    /**
+     * Проверить, что пользователь не найден.
+     *
+     * @param username имя пользователя.
+     */
     public AdminPage verifyUserNotFound(String username) {
         TABLE_BODY.shouldNotHave(Condition.text(username));
 

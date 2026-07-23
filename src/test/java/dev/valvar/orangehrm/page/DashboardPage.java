@@ -4,7 +4,6 @@ import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -24,15 +23,18 @@ public class DashboardPage {
     private final SelenideElement RECRUITMENT_MENU_ITEM = $("a[href*='viewRecruitmentModule']");
     private final SelenideElement MY_INFO_MENU_ITEM = $("a[href*='viewMyDetails']");
 
-
-    @Step("Проверить, что страница панели управления (Dashboard) открыта")
+    /**
+     * Проверить, что страница открыта.
+     */
     public DashboardPage verifyIsOpen() {
         HEADER_TITLE.shouldHave(Condition.text("Dashboard"));
 
         return this;
     }
 
-    @Step("Выйти из системы")
+    /**
+     * Выйти из системы.
+     */
     public LoginPage logout() {
         USER_DROPDOWN.click();
         LOGOUT_LINK.shouldBe(Condition.visible).click();
@@ -40,42 +42,54 @@ public class DashboardPage {
         return new LoginPage();
     }
 
-    @Step("Убедиться, что на странице Dashboard отображаются виджеты")
+    /**
+     * Проверить, что виджеты отображаются.
+     */
     public DashboardPage verifyWidgetsAreDisplayed() {
         WIDGETS.shouldHave(CollectionCondition.sizeGreaterThan(0));
 
         return this;
     }
 
-    @Step("Перейти в раздел 'PIM' через боковое меню")
+    /**
+     * Открыть страницу "PIM".
+     */
     public PimPage openPimPage() {
         PIM_MENU_ITEM.click();
 
         return new PimPage();
     }
 
-    @Step("Перейти в раздел 'Leave' через боковое меню")
+    /**
+     * Открыть страницу отпуска.
+     */
     public LeavePage openLeavePage() {
         LEAVE_MENU_ITEM.click();
 
         return new LeavePage();
     }
 
-    @Step("Перейти в раздел 'Admin' (Администрирование) через боковое меню")
+    /**
+     * Открыть страницу администрирования.
+     */
     public AdminPage openAdminPage() {
         ADMIN_MENU_ITEM.click();
 
         return new AdminPage();
     }
 
-    @Step("Перейти в раздел 'Recruitment' через боковое меню")
+    /**
+     * Открыть страницу подбора персонала.
+     */
     public RecruitmentPage openRecruitmentPage() {
         RECRUITMENT_MENU_ITEM.click();
 
         return new RecruitmentPage();
     }
 
-    @Step("Перейти в раздел 'My Info' через боковое меню")
+    /**
+     * Открыть страницу "Моя информация".
+     */
     public MyInfoPage openMyInfoPage() {
         MY_INFO_MENU_ITEM.click();
 

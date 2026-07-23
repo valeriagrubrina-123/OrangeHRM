@@ -3,7 +3,6 @@ package dev.valvar.orangehrm.page;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import dev.valvar.orangehrm.OrangeHrmUtils;
-import io.qameta.allure.Step;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -21,7 +20,12 @@ public class ApplyLeavePage {
     private final SelenideElement APPLY_BUTTON = $("button[type='submit']");
     private final SelenideElement SUCCESS_TOAST = $(".oxd-toast--success");
 
-    @Step("Добавить отпуск типа '{leaveType}' с даты {fromDate}")
+    /**
+     * Добавить.
+     *
+     * @param leaveType тип отпуска.
+     * @param fromDate  дата.
+     */
     public ApplyLeavePage apply(
             String leaveType,
             LocalDate fromDate
@@ -34,7 +38,9 @@ public class ApplyLeavePage {
         return this;
     }
 
-    @Step("Проверить успешное добавление отпуска")
+    /**
+     * Проверить, что добавление прошло успешно.
+     */
     public ApplyLeavePage verifyAppliedSuccessfully() {
         SUCCESS_TOAST.shouldBe(Condition.visible, Duration.ofSeconds(10));
 
