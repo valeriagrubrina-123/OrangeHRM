@@ -25,8 +25,10 @@ public class MyLeavePage {
      *
      * @param expectedDate дата отпуска.
      */
-    @Step("Проверить, что отпуск существует")
+    @Step("Проверка, что отпуск существует")
     public MyLeavePage verifyLeaveExists(LocalDate expectedDate) {
+        logger.debug("Проверка, что отпуск существует");
+
         // Формат даты нестабилен, может быть какой угодно. Так как требования неизвестны - проверяем все варианты.
         TABLE_BODY.shouldHave(Condition.oneOfTexts(
                 expectedDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),

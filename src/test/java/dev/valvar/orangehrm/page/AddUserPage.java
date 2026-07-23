@@ -35,7 +35,7 @@ public class AddUserPage {
      * @param username         имя пользователя.
      * @param password         пароль.
      */
-    @Step("Заполнить данные формы")
+    @Step("Заполнение данных формы")
     public AddUserPage fillForm(
             String userRole,
             String employeeFullName,
@@ -43,6 +43,8 @@ public class AddUserPage {
             String username,
             String password
     ) {
+        logger.debug("Заполнение данных формы");
+
         OrangeHrmUtils.selectDropdownOption("User Role", userRole);
         EMPLOYEE_NAME_INPUT.setValue(employeeFullName);
         EMPLOYEE_NAME_AUTOCOMPLETE_OPTION.shouldBe(Condition.visible).click();
@@ -57,8 +59,10 @@ public class AddUserPage {
     /**
      * Сохранить.
      */
-    @Step("Сохранить")
+    @Step("Сохранение")
     public AddUserPage save() {
+        logger.debug("Сохранение");
+
         SAVE_BUTTON.click();
 
         return this;
@@ -67,8 +71,10 @@ public class AddUserPage {
     /**
      * Проверить, что сохранение прошло успешно.
      */
-    @Step("Проверить, что сохранение прошло успешно")
+    @Step("Проверка успешного сохранения")
     public AddUserPage verifySavedSuccessfully() {
+        logger.debug("Проверка успешного сохранения");
+
         SUCCESS_TOAST.shouldBe(Condition.visible, Duration.ofSeconds(10));
 
         return this;

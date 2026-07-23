@@ -24,8 +24,11 @@ public class LoginPage {
     /**
      * Открыть страницу.
      */
-    @Step("Открыть страницу")
+    @Step("Открытие страницы")
     public LoginPage open() {
+        logger.debug("Открытие страницы");
+
+
         Selenide.open("/web/index.php/auth/login");
 
         return this;
@@ -37,11 +40,13 @@ public class LoginPage {
      * @param username имя пользователя.
      * @param password пароль.
      */
-    @Step("Авторизоваться")
+    @Step("Авторизация")
     public DashboardPage login(
             String username,
             String password
     ) {
+        logger.debug("Авторизация");
+
         USERNAME_INPUT.setValue(username);
         PASSWORD_INPUT.setValue(password);
         LOGIN_BUTTON.click();
@@ -55,11 +60,13 @@ public class LoginPage {
      * @param username имя пользователя.
      * @param password пароль.
      */
-    @Step("Авторизоваться, но с ожиданием ошибки (без перехода на страницу панели управления)")
+    @Step("Авторизация, но с ожиданием ошибки (без перехода на страницу панели управления)")
     public LoginPage loginExpectingError(
             String username,
             String password
     ) {
+        logger.debug("Авторизация, но с ожиданием ошибки (без перехода на страницу панели управления)");
+
         USERNAME_INPUT.setValue(username);
         PASSWORD_INPUT.setValue(password);
         LOGIN_BUTTON.click();
@@ -72,8 +79,10 @@ public class LoginPage {
      *
      * @param expectedMessage ожидаемое сообщение.
      */
-    @Step("Проверить сообщение ошибки")
+    @Step("Проверка сообщения ошибки")
     public LoginPage verifyErrorMessage(String expectedMessage) {
+        logger.debug("Проверка сообщения ошибки");
+
         ERROR_MESSAGE.shouldHave(Condition.text(expectedMessage));
 
         return this;
@@ -82,8 +91,10 @@ public class LoginPage {
     /**
      * Проверить сообщения валидации на обязательность заполнения.
      */
-    @Step("Проверить сообщения валидации на обязательность заполнения")
+    @Step("Проверка сообщений валидации на обязательность заполнения")
     public LoginPage verifyRequiredValidationMessages() {
+        logger.debug("Проверка сообщений валидации на обязательность заполнения");
+
         REQUIRED_VALIDATION_MESSAGES.shouldHave(CollectionCondition.size(2));
         REQUIRED_VALIDATION_MESSAGES.get(0).shouldHave(Condition.text("Required"));
         REQUIRED_VALIDATION_MESSAGES.get(1).shouldHave(Condition.text("Required"));
@@ -94,8 +105,10 @@ public class LoginPage {
     /**
      * Проверить, что страница открыта.
      */
-    @Step("Проверить, что страница открыта")
+    @Step("Проверка, что страница открыта")
     public LoginPage verifyIsOpen() {
+        logger.debug("Проверка, что страница открыта");
+
         LOGIN_BUTTON.shouldBe(Condition.visible);
 
         return this;

@@ -27,8 +27,10 @@ public class EditEmployeePage {
      *
      * @param middleName отчество.
      */
-    @Step("Изменить отчество")
+    @Step("Изменение отчества")
     public EditEmployeePage editMiddleName(String middleName) {
+        logger.debug("Изменение отчества");
+
         MIDDLE_NAME_INPUT.setValue(middleName);
 
         return this;
@@ -37,8 +39,10 @@ public class EditEmployeePage {
     /**
      * Сохранить.
      */
-    @Step("Сохранить")
+    @Step("Сохранение")
     public EditEmployeePage save() {
+        logger.debug("Сохранение");
+
         SAVE_BUTTON.click();
 
         return this;
@@ -47,8 +51,10 @@ public class EditEmployeePage {
     /**
      * Проверить, что сохранение прошло успешно.
      */
-    @Step("Проверить, что сохранение прошло успешно")
+    @Step("Проверка того, что сохранение прошло успешно")
     public EditEmployeePage verifySavedSuccessfully() {
+        logger.debug("Проверка того, что сохранение прошло успешно");
+
         SUCCESS_TOAST.shouldBe(Condition.visible, Duration.ofSeconds(10));
 
         return this;

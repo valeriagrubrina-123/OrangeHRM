@@ -27,8 +27,10 @@ public class RecruitmentPage {
      *
      * @param name имя.
      */
-    @Step("Осуществить поиск кандидата по имени")
+    @Step("Поиск кандидата по имени")
     public RecruitmentPage searchCandidateByName(String name) {
+        logger.debug("Поиск кандидата по имени");
+
         CANDIDATE_NAME_INPUT.setValue(name);
         AUTOCOMPLETE_OPTION.shouldBe(Condition.visible).click();
         SEARCH_BUTTON.click();
@@ -41,8 +43,10 @@ public class RecruitmentPage {
      *
      * @param name имя.
      */
-    @Step("Проверить, что кандидат найден")
+    @Step("Проверка, что кандидат найден")
     public RecruitmentPage verifyCandidateFound(String name) {
+        logger.debug("Проверка, что кандидат найден");
+
         TABLE_BODY.shouldHave(Condition.text(name));
 
         return this;
@@ -51,8 +55,10 @@ public class RecruitmentPage {
     /**
      * Кликнуть на иконку просмотра кандидата.
      */
-    @Step("Кликнуть на иконку просмотра кандидата")
+    @Step("Клик на иконку просмотра кандидата")
     public ViewCandidatePage clickViewCandidateIcon() {
+        logger.debug("Клик на иконку просмотра кандидата");
+
         EYE_ICON.shouldBe(Condition.visible).click();
 
         return new ViewCandidatePage();

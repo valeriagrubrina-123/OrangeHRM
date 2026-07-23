@@ -28,11 +28,13 @@ public class AddEmployeePage {
      * @param firstName имя.
      * @param lastName  фамилия.
      */
-    @Step("Заполнить данные формы")
+    @Step("Заполнение данных формы")
     public AddEmployeePage fillForm(
             String firstName,
             String lastName
     ) {
+        logger.debug("Заполнение данных формы");
+
         FIRST_NAME_INPUT.setValue(firstName);
         LAST_NAME_INPUT.setValue(lastName);
 
@@ -42,8 +44,10 @@ public class AddEmployeePage {
     /**
      * Сохранить.
      */
-    @Step("Сохранить")
+    @Step("Сохранение")
     public AddEmployeePage save() {
+        logger.debug("Сохранение");
+
         SAVE_BUTTON.click();
 
         return this;
@@ -52,8 +56,10 @@ public class AddEmployeePage {
     /**
      * Проверить, что сохранение прошло успешно.
      */
-    @Step("Проверить, что сохранение прошло успешно")
+    @Step("Проверка успешного сохранения")
     public AddEmployeePage verifySavedSuccessfully() {
+        logger.debug("Проверка успешного сохранения");
+
         SUCCESS_TOAST.shouldBe(Condition.visible, Duration.ofSeconds(10));
 
         return this;

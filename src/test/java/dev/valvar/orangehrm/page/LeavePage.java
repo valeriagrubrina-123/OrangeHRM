@@ -21,8 +21,10 @@ public class LeavePage {
     /**
      * Открыть страницу добавления отпуска.
      */
-    @Step("Открыть страницу добавления отпуска")
+    @Step("Открытие страницы добавления отпуска")
     public ApplyLeavePage openApplyLeavePage() {
+        logger.debug("Открытие страницы добавления отпуска");
+
         APPLY_MENU.shouldBe(Condition.visible).click();
 
         return new ApplyLeavePage();
@@ -31,8 +33,10 @@ public class LeavePage {
     /**
      * Открыть страницу "Мой отпуск".
      */
-    @Step("Открыть страницу \"Мой отпуск\"")
+    @Step("Открытие страницы \"Мой отпуск\"")
     public MyLeavePage openMyLeavePage() {
+        logger.debug("Открытие страницы \"Мой отпуск\"");
+
         MY_LEAVE_MENU.shouldBe(Condition.visible).click();
 
         return new MyLeavePage();

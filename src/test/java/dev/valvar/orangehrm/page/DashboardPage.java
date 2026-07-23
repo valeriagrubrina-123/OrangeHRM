@@ -31,8 +31,10 @@ public class DashboardPage {
     /**
      * Проверить, что страница открыта.
      */
-    @Step("Проверить, что страница открыта")
+    @Step("Проверка того, что страница открыта")
     public DashboardPage verifyIsOpen() {
+        logger.debug("Проверка того, что страница открыта");
+
         HEADER_TITLE.shouldHave(Condition.text("Dashboard"));
 
         return this;
@@ -41,8 +43,10 @@ public class DashboardPage {
     /**
      * Выйти из системы.
      */
-    @Step("Выйти из системы")
+    @Step("Выход из системы")
     public LoginPage logout() {
+        logger.debug("Выход из системы");
+
         USER_DROPDOWN.click();
         LOGOUT_LINK.shouldBe(Condition.visible).click();
 
@@ -52,8 +56,10 @@ public class DashboardPage {
     /**
      * Проверить, что виджеты отображаются.
      */
-    @Step("Проверить, что виджеты отображаются")
+    @Step("Проверка того, что виджеты отображаются")
     public DashboardPage verifyWidgetsAreDisplayed() {
+        logger.debug("Проверка того, что виджеты отображаются");
+
         WIDGETS.shouldHave(CollectionCondition.sizeGreaterThan(0));
 
         return this;
@@ -62,8 +68,10 @@ public class DashboardPage {
     /**
      * Открыть страницу "PIM".
      */
-    @Step("Открыть страницу \"PIM\"")
+    @Step("Открытие страницы \"PIM\"")
     public PimPage openPimPage() {
+        logger.debug("Открытие страницы \"PIM\"");
+
         PIM_MENU_ITEM.click();
 
         return new PimPage();
@@ -72,8 +80,10 @@ public class DashboardPage {
     /**
      * Открыть страницу отпуска.
      */
-    @Step("Открыть страницу отпуска")
+    @Step("Открытие страницы отпуска")
     public LeavePage openLeavePage() {
+        logger.debug("Открытие страницы отпуска");
+
         LEAVE_MENU_ITEM.click();
 
         return new LeavePage();
@@ -82,8 +92,10 @@ public class DashboardPage {
     /**
      * Открыть страницу администрирования.
      */
-    @Step("Открыть страницу администрирования")
+    @Step("Открытие страницы администрирования")
     public AdminPage openAdminPage() {
+        logger.debug("Открытие страницы администрирования");
+
         ADMIN_MENU_ITEM.click();
 
         return new AdminPage();
@@ -92,8 +104,10 @@ public class DashboardPage {
     /**
      * Открыть страницу подбора персонала.
      */
-    @Step("Открыть страницу подбора персонала")
+    @Step("Открытие страницы подбора персонала")
     public RecruitmentPage openRecruitmentPage() {
+        logger.debug("Открытие страницы подбора персонала");
+
         RECRUITMENT_MENU_ITEM.click();
 
         return new RecruitmentPage();
@@ -102,8 +116,10 @@ public class DashboardPage {
     /**
      * Открыть страницу "Моя информация".
      */
-    @Step("Открыть страницу \"Моя информация\"")
+    @Step("Открытие страницы \"Моя информация\"")
     public MyInfoPage openMyInfoPage() {
+        logger.debug("Открытие страницы \"Моя информация\"");
+
         MY_INFO_MENU_ITEM.click();
 
         return new MyInfoPage();

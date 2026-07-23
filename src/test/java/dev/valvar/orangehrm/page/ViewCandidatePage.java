@@ -20,8 +20,10 @@ public class ViewCandidatePage {
     /**
      * Проверить, что страница открыта.
      */
-    @Step("Проверить, что страница открыта")
+    @Step("Проверка, что страница открыта")
     public ViewCandidatePage verifyIsOpen() {
+        logger.debug("Проверка, что страница открыта");
+
         PROFILE_HEADER.shouldHave(Condition.text("Application Stage"));
 
         return this;

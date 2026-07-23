@@ -31,11 +31,13 @@ public class ApplyLeavePage {
      * @param leaveType тип отпуска.
      * @param fromDate  дата.
      */
-    @Step("Добавить")
+    @Step("Добавление")
     public ApplyLeavePage apply(
             String leaveType,
             LocalDate fromDate
     ) {
+        logger.debug("Добавление");
+
         OrangeHrmUtils.selectDropdownOption("Leave Type", leaveType);
         FROM_DATE_INPUT.setValue(fromDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         $("h6").click(); // Кликаем где-нибудь снаружи, чтобы скрыть всплывающий календарь.
@@ -47,8 +49,10 @@ public class ApplyLeavePage {
     /**
      * Проверить, что добавление прошло успешно.
      */
-    @Step("Проверить, что добавление прошло успешно")
+    @Step("Проверка того, что добавление прошло успешно")
     public ApplyLeavePage verifyAppliedSuccessfully() {
+        logger.debug("Проверка того, что добавление прошло успешно");
+
         SUCCESS_TOAST.shouldBe(Condition.visible, Duration.ofSeconds(10));
 
         return this;

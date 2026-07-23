@@ -20,8 +20,10 @@ public class MyInfoPage {
     /**
      * Проверить, что страница открыта.
      */
-    @Step("Проверить, что страница открыта")
+    @Step("Проверка, что страница открыта")
     public MyInfoPage verifyIsOpen() {
+        logger.debug("Проверка, что страница открыта");
+
         PERSONAL_DETAILS_HEADER.shouldHave(Condition.text("Personal Details"));
 
         return this;

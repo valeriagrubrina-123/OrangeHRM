@@ -25,8 +25,10 @@ public class AdminPage {
     /**
      * Кликнуть на кнопку "Добавить пользователя".
      */
-    @Step("Кликнуть на кнопку \"Добавить пользователя\"")
+    @Step("Клик на кнопку \"Добавить пользователя\"")
     public AddUserPage clickAddUserButton() {
+        logger.debug("Клик на кнопку \"Добавить пользователя\"");
+
         ADD_BUTTON.shouldBe(Condition.visible).click();
 
         return new AddUserPage();
@@ -37,8 +39,10 @@ public class AdminPage {
      *
      * @param username имя пользователя.
      */
-    @Step("Осуществить поиск пользователя по имени пользователя")
+    @Step("Поиск пользователя по имени пользователя")
     public AdminPage searchUserByUsername(String username) {
+        logger.debug("Поиск пользователя по имени пользователя");
+
         SEARCH_USERNAME_INPUT.shouldBe(Condition.visible).setValue(username);
         SEARCH_BUTTON.click();
         TABLE_BODY.shouldBe(Condition.visible);
@@ -51,8 +55,10 @@ public class AdminPage {
      *
      * @param username имя пользователя.
      */
-    @Step("Проверить, что пользователь найден")
+    @Step("Проверка того, что пользователь найден")
     public AdminPage verifyUserFound(String username) {
+        logger.debug("Проверка того, что пользователь найден");
+
         TABLE_BODY.shouldHave(Condition.text(username));
 
         return this;
@@ -61,8 +67,10 @@ public class AdminPage {
     /**
      * Удалить пользователя.
      */
-    @Step("Удалить пользователя")
+    @Step("Удаление пользователя")
     public AdminPage deleteUser() {
+        logger.debug("Удаление пользователя");
+
         DELETE_ICON.shouldBe(Condition.visible).click();
         CONFIRM_DELETE_BUTTON.shouldBe(Condition.visible).click();
 
@@ -74,8 +82,10 @@ public class AdminPage {
      *
      * @param username имя пользователя.
      */
-    @Step("Проверить, что пользователь не найден")
+    @Step("Проверка того, что пользователь не найден")
     public AdminPage verifyUserNotFound(String username) {
+        logger.debug("Проверка того, что пользователь не найден");
+
         TABLE_BODY.shouldNotHave(Condition.text(username));
 
         return this;

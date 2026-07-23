@@ -28,8 +28,10 @@ public class PimPage {
     /**
      * Кликнуть на кнопку "Добавить сотрудника".
      */
-    @Step("Кликнуть на кнопку \"Добавить сотрудника\"")
+    @Step("Клик на кнопку \"Добавить сотрудника\"")
     public AddEmployeePage clickAddEmployeeButton() {
+        logger.debug("Клик на кнопку \"Добавить сотрудника\"");
+
         ADD_BUTTON.click();
 
         return new AddEmployeePage();
@@ -40,8 +42,10 @@ public class PimPage {
      *
      * @param fullName имя/фамилия.
      */
-    @Step("Осуществить поиск сотрудника по имени/фамилии")
+    @Step("Поиск сотрудника по имени/фамилии")
     public PimPage searchEmployeeByFullName(String fullName) {
+        logger.debug("Поиск сотрудника по имени/фамилии");
+
         EMPLOYEE_NAME_INPUT.setValue(fullName);
         SEARCH_BUTTON.click();
 
@@ -54,11 +58,13 @@ public class PimPage {
      * @param firstName имя.
      * @param lastName  фамилия.
      */
-    @Step("Проверить, что сотрудник найден")
+    @Step("Проверка, что сотрудник найден")
     public PimPage verifyEmployeeFound(
             String firstName,
             String lastName
     ) {
+        logger.debug("Проверка, что сотрудник найден");
+
         TABLE_BODY.shouldHave(Condition.text(firstName), Condition.text(lastName));
 
         return this;
@@ -67,8 +73,10 @@ public class PimPage {
     /**
      * Кликнуть на иконку редактирования сотрудника.
      */
-    @Step("Кликнуть на иконку редактирования сотрудника")
+    @Step("Клик на иконку редактирования сотрудника")
     public EditEmployeePage clickEditEmployeeIcon() {
+        logger.debug("Клик на иконку редактирования сотрудника");
+
         EDIT_ICON.shouldBe(Condition.visible).click();
 
         return new EditEmployeePage();
@@ -77,8 +85,10 @@ public class PimPage {
     /**
      * Удалить сотрудника.
      */
-    @Step("Удалить сотрудника")
+    @Step("Удаление сотрудника")
     public PimPage deleteEmployee() {
+        logger.debug("Удаление сотрудника");
+
         DELETE_ICON.shouldBe(Condition.visible).click();
         CONFIRM_DELETE_BUTTON.shouldBe(Condition.visible).click();
         SUCCESS_TOAST.shouldBe(Condition.visible);
@@ -92,11 +102,13 @@ public class PimPage {
      * @param firstName имя.
      * @param lastName  фамилия.
      */
-    @Step("Проверить, что сотрудник не найден")
+    @Step("Проверка, что сотрудник не найден")
     public PimPage verifyEmployeeNotFound(
             String firstName,
             String lastName
     ) {
+        logger.debug("Проверка, что сотрудник не найден");
+
         TABLE_BODY.shouldNotHave(Condition.text(firstName), Condition.text(lastName));
 
         return this;
