@@ -1,6 +1,6 @@
 package dev.valvar.orangehrm.test;
 
-import dev.valvar.orangehrm.ConfigReader;
+import dev.valvar.orangehrm.utils.ConfigReader;
 import org.testng.annotations.BeforeMethod;
 
 public abstract class BaseLoginTest extends BaseTest {

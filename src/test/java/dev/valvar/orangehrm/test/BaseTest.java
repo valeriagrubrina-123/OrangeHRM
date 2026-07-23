@@ -2,7 +2,7 @@ package dev.valvar.orangehrm.test;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import dev.valvar.orangehrm.ConfigReader;
+import dev.valvar.orangehrm.utils.ConfigReader;
 import dev.valvar.orangehrm.page.DashboardPage;
 import dev.valvar.orangehrm.page.LoginPage;
 import org.openqa.selenium.chrome.ChromeOptions;

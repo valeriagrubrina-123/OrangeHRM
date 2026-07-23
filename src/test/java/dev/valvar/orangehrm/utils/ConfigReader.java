@@ -1,4 +1,4 @@
-package dev.valvar.orangehrm;
+package dev.valvar.orangehrm.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;

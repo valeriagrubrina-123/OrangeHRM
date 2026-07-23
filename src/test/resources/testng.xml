@@ -3,8 +3,8 @@
 <suite name="OrangeHRM Automation Suite" parallel="methods" thread-count="4">
 
     <listeners>
-        <listener class-name="dev.valvar.orangehrm.AnnotationTransformer"/>
-        <listener class-name="dev.valvar.orangehrm.test.TestListener"/>
+        <listener class-name="dev.valvar.orangehrm.listener.AnnotationTransformer"/>
+        <listener class-name="dev.valvar.orangehrm.listener.TestListener"/>
     </listeners>
 
     <test name="UI Tests on Chrome">

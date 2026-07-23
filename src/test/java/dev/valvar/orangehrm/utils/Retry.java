@@ -1,4 +1,4 @@
-package dev.valvar.orangehrm;
+package dev.valvar.orangehrm.utils;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;

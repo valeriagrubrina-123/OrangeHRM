@@ -1,4 +1,4 @@
-package dev.valvar.orangehrm.test;
+package dev.valvar.orangehrm.listener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

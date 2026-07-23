@@ -1,6 +1,6 @@
 package dev.valvar.orangehrm.test;
 
-import dev.valvar.orangehrm.OrangeHrmUtils;
+import dev.valvar.orangehrm.utils.OrangeHrmUtils;
 import org.testng.ITestContext;
 import org.testng.annotations.Test;
 

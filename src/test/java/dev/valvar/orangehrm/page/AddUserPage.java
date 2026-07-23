@@ -2,7 +2,7 @@ package dev.valvar.orangehrm.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import dev.valvar.orangehrm.OrangeHrmUtils;
+import dev.valvar.orangehrm.utils.OrangeHrmUtils;
 import io.qameta.allure.Step;
 
 import java.time.Duration;

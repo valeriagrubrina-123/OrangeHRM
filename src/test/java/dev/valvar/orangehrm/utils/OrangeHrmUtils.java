@@ -1,4 +1,4 @@
-package dev.valvar.orangehrm;
+package dev.valvar.orangehrm.utils;
 
 import com.codeborne.selenide.Condition;
 
