@@ -2,19 +2,18 @@ package dev.valvar.orangehrm.test;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import dev.valvar.orangehrm.utils.ConfigReader;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import dev.valvar.orangehrm.page.DashboardPage;
 import dev.valvar.orangehrm.page.LoginPage;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
-import com.codeborne.selenide.logevents.SelenideLogger;
+import dev.valvar.orangehrm.utils.ConfigReader;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.testng.annotations.BeforeSuite;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.*;
 
 public abstract class BaseTest {
+
+    protected String username;
+    protected String password;
 
     protected LoginPage loginPage;
     protected DashboardPage dashboardPage;
@@ -46,6 +45,9 @@ public abstract class BaseTest {
         }
 
         Configuration.headless = Boolean.parseBoolean(ConfigReader.getProperty("headless"));
+
+        username = ConfigReader.getProperty("validUsername");
+        password = ConfigReader.getProperty("validPassword");
 
         loginPage = new LoginPage();
         dashboardPage = new DashboardPage();

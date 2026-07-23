@@ -8,9 +8,6 @@ public class AuthorizationTest extends BaseTest {
 
     @Test(description = "Успешная авторизация с валидными кредами (переход на страницу Dashboard)")
     public void successfulAuthorizationWithValidCredentialsTest() {
-        String username = ConfigReader.getProperty("validUsername");
-        String password = ConfigReader.getProperty("validPassword");
-
         loginPage
                 .open()
                 .login(username, password)
@@ -19,7 +16,6 @@ public class AuthorizationTest extends BaseTest {
 
     @Test(description = "Ошибка авторизации при неправильном пароле")
     public void authorizationErrorDueToIncorrectPasswordTest() {
-        String username = ConfigReader.getProperty("validUsername");
         String password = ConfigReader.getProperty("invalidPassword");
 
         loginPage
@@ -38,9 +34,6 @@ public class AuthorizationTest extends BaseTest {
 
     @Test(description = "Успешный выход из системы")
     public void successfulLogoutTest() {
-        String username = ConfigReader.getProperty("validUsername");
-        String password = ConfigReader.getProperty("validPassword");
-
         loginPage
                 .open()
                 .login(username, password)
@@ -50,9 +43,6 @@ public class AuthorizationTest extends BaseTest {
 
     @Test(description = "Отображение виджетов на главной странице после авторизации")
     public void displayingWidgetsOnMainPageAfterAuthorizationTest() {
-        String username = ConfigReader.getProperty("validUsername");
-        String password = ConfigReader.getProperty("validPassword");
-
         loginPage
                 .open()
                 .login(username, password)
