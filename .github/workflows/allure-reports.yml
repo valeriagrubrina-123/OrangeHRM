@@ -26,7 +26,11 @@ jobs:
           cache: 'maven'
 
       - name: Run Tests with Maven
-        run: mvn clean test -Dselenide.headless=true
+        run: >
+          mvn clean test 
+          -Dselenide.headless=true 
+          -DvalidUsername="${{ secrets.VALID_USERNAME }}" 
+          -DvalidPassword="${{ secrets.VALID_PASSWORD }}"
         continue-on-error: true
 
       - name: Load Allure History
