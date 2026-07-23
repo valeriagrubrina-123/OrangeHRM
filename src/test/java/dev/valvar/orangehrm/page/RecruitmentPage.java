@@ -2,7 +2,6 @@ package dev.valvar.orangehrm.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -18,7 +17,11 @@ public class RecruitmentPage {
     private final SelenideElement TABLE_BODY = $(".oxd-table-body");
     private final SelenideElement EYE_ICON = $(".bi-eye-fill");
 
-    @Step("Осуществить поиск кандидата по имени '{name}'")
+    /**
+     * Осуществить поиск кандидата по имени.
+     *
+     * @param name имя.
+     */
     public RecruitmentPage searchCandidateByName(String name) {
         CANDIDATE_NAME_INPUT.setValue(name);
         AUTOCOMPLETE_OPTION.shouldBe(Condition.visible).click();
@@ -27,14 +30,20 @@ public class RecruitmentPage {
         return this;
     }
 
-    @Step("Проверить, что кандидат '{name}' найден в результатах поиска")
+    /**
+     * Проверить, что кандидат найден.
+     *
+     * @param name имя.
+     */
     public RecruitmentPage verifyCandidateFound(String name) {
         TABLE_BODY.shouldHave(Condition.text(name));
 
         return this;
     }
 
-    @Step("Кликнуть на иконку просмотра карточки кандидата")
+    /**
+     * Кликнуть на иконку просмотра кандидата.
+     */
     public ViewCandidatePage clickViewCandidateIcon() {
         EYE_ICON.shouldBe(Condition.visible).click();
 
