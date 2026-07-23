@@ -2,6 +2,7 @@ package dev.valvar.orangehrm.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -20,6 +21,7 @@ public class AdminPage {
     /**
      * Кликнуть на кнопку "Добавить пользователя".
      */
+    @Step("Кликнуть на кнопку \"Добавить пользователя\"")
     public AddUserPage clickAddUserButton() {
         ADD_BUTTON.shouldBe(Condition.visible).click();
 
@@ -31,6 +33,7 @@ public class AdminPage {
      *
      * @param username имя пользователя.
      */
+    @Step("Осуществить поиск пользователя по имени пользователя")
     public AdminPage searchUserByUsername(String username) {
         SEARCH_USERNAME_INPUT.shouldBe(Condition.visible).setValue(username);
         SEARCH_BUTTON.click();
@@ -44,6 +47,7 @@ public class AdminPage {
      *
      * @param username имя пользователя.
      */
+    @Step("Проверить, что пользователь найден")
     public AdminPage verifyUserFound(String username) {
         TABLE_BODY.shouldHave(Condition.text(username));
 
@@ -53,6 +57,7 @@ public class AdminPage {
     /**
      * Удалить пользователя.
      */
+    @Step("Удалить пользователя")
     public AdminPage deleteUser() {
         DELETE_ICON.shouldBe(Condition.visible).click();
         CONFIRM_DELETE_BUTTON.shouldBe(Condition.visible).click();
@@ -65,6 +70,7 @@ public class AdminPage {
      *
      * @param username имя пользователя.
      */
+    @Step("Проверить, что пользователь не найден")
     public AdminPage verifyUserNotFound(String username) {
         TABLE_BODY.shouldNotHave(Condition.text(username));
 

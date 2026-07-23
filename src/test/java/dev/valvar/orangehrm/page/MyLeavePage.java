@@ -2,6 +2,7 @@ package dev.valvar.orangehrm.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -20,6 +21,7 @@ public class MyLeavePage {
      *
      * @param expectedDate дата отпуска.
      */
+    @Step("Проверить, что отпуск существует")
     public MyLeavePage verifyLeaveExists(LocalDate expectedDate) {
         // Формат даты нестабилен, может быть какой угодно. Так как требования неизвестны - проверяем все варианты.
         TABLE_BODY.shouldHave(Condition.oneOfTexts(

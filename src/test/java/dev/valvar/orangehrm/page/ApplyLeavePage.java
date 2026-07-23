@@ -3,6 +3,7 @@ package dev.valvar.orangehrm.page;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import dev.valvar.orangehrm.OrangeHrmUtils;
+import io.qameta.allure.Step;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -26,6 +27,7 @@ public class ApplyLeavePage {
      * @param leaveType тип отпуска.
      * @param fromDate  дата.
      */
+    @Step("Добавить")
     public ApplyLeavePage apply(
             String leaveType,
             LocalDate fromDate
@@ -41,6 +43,7 @@ public class ApplyLeavePage {
     /**
      * Проверить, что добавление прошло успешно.
      */
+    @Step("Проверить, что добавление прошло успешно")
     public ApplyLeavePage verifyAppliedSuccessfully() {
         SUCCESS_TOAST.shouldBe(Condition.visible, Duration.ofSeconds(10));
 

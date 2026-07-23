@@ -4,6 +4,7 @@ import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -26,6 +27,7 @@ public class DashboardPage {
     /**
      * Проверить, что страница открыта.
      */
+    @Step("Проверить, что страница открыта")
     public DashboardPage verifyIsOpen() {
         HEADER_TITLE.shouldHave(Condition.text("Dashboard"));
 
@@ -35,6 +37,7 @@ public class DashboardPage {
     /**
      * Выйти из системы.
      */
+    @Step("Выйти из системы")
     public LoginPage logout() {
         USER_DROPDOWN.click();
         LOGOUT_LINK.shouldBe(Condition.visible).click();
@@ -45,6 +48,7 @@ public class DashboardPage {
     /**
      * Проверить, что виджеты отображаются.
      */
+    @Step("Проверить, что виджеты отображаются")
     public DashboardPage verifyWidgetsAreDisplayed() {
         WIDGETS.shouldHave(CollectionCondition.sizeGreaterThan(0));
 
@@ -54,6 +58,7 @@ public class DashboardPage {
     /**
      * Открыть страницу "PIM".
      */
+    @Step("Открыть страницу \"PIM\"")
     public PimPage openPimPage() {
         PIM_MENU_ITEM.click();
 
@@ -63,6 +68,7 @@ public class DashboardPage {
     /**
      * Открыть страницу отпуска.
      */
+    @Step("Открыть страницу отпуска")
     public LeavePage openLeavePage() {
         LEAVE_MENU_ITEM.click();
 
@@ -72,6 +78,7 @@ public class DashboardPage {
     /**
      * Открыть страницу администрирования.
      */
+    @Step("Открыть страницу администрирования")
     public AdminPage openAdminPage() {
         ADMIN_MENU_ITEM.click();
 
@@ -81,6 +88,7 @@ public class DashboardPage {
     /**
      * Открыть страницу подбора персонала.
      */
+    @Step("Открыть страницу подбора персонала")
     public RecruitmentPage openRecruitmentPage() {
         RECRUITMENT_MENU_ITEM.click();
 
@@ -90,6 +98,7 @@ public class DashboardPage {
     /**
      * Открыть страницу "Моя информация".
      */
+    @Step("Открыть страницу \"Моя информация\"")
     public MyInfoPage openMyInfoPage() {
         MY_INFO_MENU_ITEM.click();
 

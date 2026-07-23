@@ -2,6 +2,7 @@ package dev.valvar.orangehrm.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -15,6 +16,7 @@ public class MyInfoPage {
     /**
      * Проверить, что страница открыта.
      */
+    @Step("Проверить, что страница открыта")
     public MyInfoPage verifyIsOpen() {
         PERSONAL_DETAILS_HEADER.shouldHave(Condition.text("Personal Details"));
 

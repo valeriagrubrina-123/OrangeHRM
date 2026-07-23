@@ -3,6 +3,7 @@ package dev.valvar.orangehrm.page;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import dev.valvar.orangehrm.OrangeHrmUtils;
+import io.qameta.allure.Step;
 
 import java.time.Duration;
 
@@ -30,6 +31,7 @@ public class AddUserPage {
      * @param username         имя пользователя.
      * @param password         пароль.
      */
+    @Step("Заполнить данные формы")
     public AddUserPage fillForm(
             String userRole,
             String employeeFullName,
@@ -51,6 +53,7 @@ public class AddUserPage {
     /**
      * Сохранить.
      */
+    @Step("Сохранить")
     public AddUserPage save() {
         SAVE_BUTTON.click();
 
@@ -60,6 +63,7 @@ public class AddUserPage {
     /**
      * Проверить, что сохранение прошло успешно.
      */
+    @Step("Проверить, что сохранение прошло успешно")
     public AddUserPage verifySavedSuccessfully() {
         SUCCESS_TOAST.shouldBe(Condition.visible, Duration.ofSeconds(10));
 

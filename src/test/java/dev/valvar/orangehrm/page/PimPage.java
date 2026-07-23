@@ -2,6 +2,7 @@ package dev.valvar.orangehrm.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -23,6 +24,7 @@ public class PimPage {
     /**
      * Кликнуть на кнопку "Добавить сотрудника".
      */
+    @Step("Кликнуть на кнопку \"Добавить сотрудника\"")
     public AddEmployeePage clickAddEmployeeButton() {
         ADD_BUTTON.click();
 
@@ -34,6 +36,7 @@ public class PimPage {
      *
      * @param fullName имя/фамилия.
      */
+    @Step("Осуществить поиск сотрудника по имени/фамилии")
     public PimPage searchEmployeeByFullName(String fullName) {
         EMPLOYEE_NAME_INPUT.setValue(fullName);
         SEARCH_BUTTON.click();
@@ -47,6 +50,7 @@ public class PimPage {
      * @param firstName имя.
      * @param lastName  фамилия.
      */
+    @Step("Проверить, что сотрудник найден")
     public PimPage verifyEmployeeFound(
             String firstName,
             String lastName
@@ -59,6 +63,7 @@ public class PimPage {
     /**
      * Кликнуть на иконку редактирования сотрудника.
      */
+    @Step("Кликнуть на иконку редактирования сотрудника")
     public EditEmployeePage clickEditEmployeeIcon() {
         EDIT_ICON.shouldBe(Condition.visible).click();
 
@@ -68,6 +73,7 @@ public class PimPage {
     /**
      * Удалить сотрудника.
      */
+    @Step("Удалить сотрудника")
     public PimPage deleteEmployee() {
         DELETE_ICON.shouldBe(Condition.visible).click();
         CONFIRM_DELETE_BUTTON.shouldBe(Condition.visible).click();
@@ -82,6 +88,7 @@ public class PimPage {
      * @param firstName имя.
      * @param lastName  фамилия.
      */
+    @Step("Проверить, что сотрудник не найден")
     public PimPage verifyEmployeeNotFound(
             String firstName,
             String lastName

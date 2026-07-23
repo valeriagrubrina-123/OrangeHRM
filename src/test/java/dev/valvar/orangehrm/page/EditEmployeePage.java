@@ -2,6 +2,7 @@ package dev.valvar.orangehrm.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import java.time.Duration;
 
@@ -22,6 +23,7 @@ public class EditEmployeePage {
      *
      * @param middleName отчество.
      */
+    @Step("Изменить отчество")
     public EditEmployeePage editMiddleName(String middleName) {
         MIDDLE_NAME_INPUT.setValue(middleName);
 
@@ -31,6 +33,7 @@ public class EditEmployeePage {
     /**
      * Сохранить.
      */
+    @Step("Сохранить")
     public EditEmployeePage save() {
         SAVE_BUTTON.click();
 
@@ -40,6 +43,7 @@ public class EditEmployeePage {
     /**
      * Проверить, что сохранение прошло успешно.
      */
+    @Step("Проверить, что сохранение прошло успешно")
     public EditEmployeePage verifySavedSuccessfully() {
         SUCCESS_TOAST.shouldBe(Condition.visible, Duration.ofSeconds(10));
 

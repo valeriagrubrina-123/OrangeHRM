@@ -2,6 +2,7 @@ package dev.valvar.orangehrm.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -16,6 +17,7 @@ public class LeavePage {
     /**
      * Открыть страницу добавления отпуска.
      */
+    @Step("Открыть страницу добавления отпуска")
     public ApplyLeavePage openApplyLeavePage() {
         APPLY_MENU.shouldBe(Condition.visible).click();
 
@@ -25,6 +27,7 @@ public class LeavePage {
     /**
      * Открыть страницу "Мой отпуск".
      */
+    @Step("Открыть страницу \"Мой отпуск\"")
     public MyLeavePage openMyLeavePage() {
         MY_LEAVE_MENU.shouldBe(Condition.visible).click();
 

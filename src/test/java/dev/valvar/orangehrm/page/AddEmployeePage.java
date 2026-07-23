@@ -2,6 +2,7 @@ package dev.valvar.orangehrm.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import java.time.Duration;
 
@@ -23,6 +24,7 @@ public class AddEmployeePage {
      * @param firstName имя.
      * @param lastName  фамилия.
      */
+    @Step("Заполнить данные формы")
     public AddEmployeePage fillForm(
             String firstName,
             String lastName
@@ -36,6 +38,7 @@ public class AddEmployeePage {
     /**
      * Сохранить.
      */
+    @Step("Сохранить")
     public AddEmployeePage save() {
         SAVE_BUTTON.click();
 
@@ -45,6 +48,7 @@ public class AddEmployeePage {
     /**
      * Проверить, что сохранение прошло успешно.
      */
+    @Step("Проверить, что сохранение прошло успешно")
     public AddEmployeePage verifySavedSuccessfully() {
         SUCCESS_TOAST.shouldBe(Condition.visible, Duration.ofSeconds(10));
 
